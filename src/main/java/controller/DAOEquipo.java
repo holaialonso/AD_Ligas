@@ -55,7 +55,7 @@ public class DAOEquipo {
 
             for(Equipo item : listado){
 
-                System.out.println(Equipo.);
+                System.out.println(item.getId_equipo());
             }
 
 

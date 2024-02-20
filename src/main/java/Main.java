@@ -25,14 +25,14 @@ public class Main {
 
                 //1.1. Crear, editar y eliminar ligas
                     //makeNewLigas(); //-> crear
-                    //makeEditLigas(); //-> editar
+                   // makeEditLigas(); //-> editar
                     //makeDeleteLigas(); //->eliminar
 
                 //1.2. Asignar equipos a las ligas
                     //makeEquiposLigas();
 
                 //1.3. Consultar información de las ligas disponibles
-                    //showLigas();
+                   // showLigas();
 
 
             //2. GESTIÓN DE EQUIPOS
@@ -56,10 +56,10 @@ public class Main {
                     //makeEditPartidos();
 
                 //3.3. Consultar el calendario de partidos y sus resultados
-                    //showCalendarPartidos();
+                   // showCalendarPartidos();
 
-
-
+        //ACCIONES
+            //makeAcciones();
 
 
         /*
@@ -68,42 +68,6 @@ public class Main {
             TRUNCATE TABLE Partido;
          */
 
-        //1. Crea 1 liga
-    /*    Liga liga = new Liga("Liga Santander", LocalDate.of(2024,5,12),LocalDate.of(2023,4,23));
-        DAOLiga DAOLiga = new DAOLiga();
-        DAOLiga.insertarLiga(liga);
-
-
-        //2. Crea 8 equipos
-        Equipo equipo = new Equipo ("prueba", "prueba", liga);
-        Equipo equipo2 = new Equipo("PRUEBA2", "TOLEDO", liga);
-        DAOEquipo DAOEquipo = new DAOEquipo();
-        DAOEquipo.insertarEquipo(equipo);
-        DAOEquipo.insertarEquipo(equipo2);
-
-
-        //3. Crea 6 partidos
-        Partido partido = new Partido(LocalDate.of(2024,5,12), 9, 0, equipo, equipo2, liga);
-        DAOPartido DAOPartido = new DAOPartido();
-        DAOPartido.insertarPartido(partido);
-    */
-        //4. Muestra datos de todos los equipos
-    /*    DAOEquipo DAOEquipo = new DAOEquipo();
-        DAOEquipo.getEquipos();
-    */
-
-        //5. Elimina 2 equipos
-   /*     DAOEquipo DAOEquipo = new DAOEquipo();
-        DAOEquipo.deleteEquipo(2);
-    */
-
-        //6. Muestra todos los partidos de una liga concreta
-    /*    DAOPartido DAOPartido = new DAOPartido();
-        Liga liga = new Liga(6,"Liga Santander", LocalDate.of(2024,5,12),LocalDate.of(2023,4,23));
-        DAOPartido.getPartidos(liga);
-
-
-     */
     }
 
 
@@ -166,7 +130,7 @@ public class Main {
             liga.setEquipos(equipos);
 
             //Asigno en la bbdd los equipos
-            DAOLiga.insertLiga(liga);
+            DAOLiga.insertLigaEquipos(liga);
         }
 
         //Método para consultar la información de las ligas disponibles
@@ -202,7 +166,7 @@ public class Main {
             //1. Obtengo las ligas a las que irán asignadas los equipos
             DAOLiga DAOLiga = new DAOLiga();
             Liga liga1 = DAOLiga.getLiga(1);
-            Liga liga2 = DAOLiga.getLiga(7);
+            Liga liga2 = DAOLiga.getLiga(4);
 
 
             //2. Creo los objetos de los equipos
@@ -236,7 +200,7 @@ public class Main {
             //Modificar la información del equipo
             equipo.setNombre_equipo("Granada F.C.");
             equipo.setCiudad("Granada");
-            equipo.setLiga(DAOLiga.getLiga(8));
+            equipo.setLiga(DAOLiga.getLiga(4));
 
             DAOEquipo.modifyEquipo(equipo);
         }
@@ -246,7 +210,7 @@ public class Main {
 
             //Obtengo la liga
             DAOLiga DAOLiga = new DAOLiga();
-            Liga liga = DAOLiga.getLiga(8);
+            Liga liga = DAOLiga.getLiga(4);
 
             //Elimino todos los equipos de esa liga
             DAOEquipo DAOEquipo = new DAOEquipo();
@@ -268,8 +232,8 @@ public class Main {
             List<Partido> partidos = new ArrayList<>();
                           partidos.add(new Partido(LocalDate.of(2024, 1,6), 0, 0, DAOEquipo.getEquipo(1), DAOEquipo.getEquipo(2), DAOLiga.getLiga(1)));
                           partidos.add(new Partido(LocalDate.of(2024, 1,13), 0, 0, DAOEquipo.getEquipo(4), DAOEquipo.getEquipo(5), DAOLiga.getLiga(1)));
-                          partidos.add(new Partido(LocalDate.of(2024, 1,20), 0, 0, DAOEquipo.getEquipo(1), DAOEquipo.getEquipo(2), DAOLiga.getLiga(6)));
-                          partidos.add(new Partido(LocalDate.of(2024, 1,27), 0, 0, DAOEquipo.getEquipo(4), DAOEquipo.getEquipo(5), DAOLiga.getLiga(8)));
+                          partidos.add(new Partido(LocalDate.of(2024, 1,20), 0, 0, DAOEquipo.getEquipo(1), DAOEquipo.getEquipo(2), DAOLiga.getLiga(4)));
+                          partidos.add(new Partido(LocalDate.of(2024, 1,27), 0, 0, DAOEquipo.getEquipo(4), DAOEquipo.getEquipo(5), DAOLiga.getLiga(4)));
 
             for(int i=0; i<partidos.size(); i++){
 
@@ -327,4 +291,76 @@ public class Main {
                 return fechaFormateada;
 
             }
+
+
+    //ACCIONES
+        public static void makeAcciones(){
+
+            //Creo los controladores
+            DAOLiga DAOLiga = new DAOLiga();
+            DAOEquipo DAOEquipo = new DAOEquipo();
+            DAOPartido DAOPartido = new DAOPartido();
+
+            //Realizo las diferentes acciones propuestas en el enunciado
+                //- Crea 1 liga
+                Liga liga = new Liga("Premier League", LocalDate.of(2023, 6,1), LocalDate.of(2024, 6, 1));
+                DAOLiga.insertLiga(liga);
+
+                //- Crea 8 equipos
+                List<Equipo> equipos = new ArrayList<>();
+                                equipos.add(new Equipo("Everton", "Liverpool", liga));
+                                equipos.add(new Equipo("Crystal Palace", "Londes", liga));
+                                equipos.add(new Equipo("Luton", "Luton", liga));
+                                equipos.add(new Equipo("Manchester United", "Manchester", liga));
+                                equipos.add(new Equipo("Sheffield United", "Sheffield", liga));
+                                equipos.add(new Equipo("Brighton", "Brighton", liga));
+                                equipos.add(new Equipo("Liverpool", "Liverpool", liga));
+                                equipos.add(new Equipo("Chelsea", "Londres", liga));
+
+                for(int i=0; i<equipos.size(); i++){
+                    DAOEquipo.insertEquipo(equipos.get(i));
+                }
+
+                //- Crea 6 partidos
+                List<Partido> partidos = new ArrayList<>();
+                                partidos.add(new Partido(LocalDate.of(2023, 12, 30), 2, 3, equipos.get(2), equipos.get(7), liga));
+                                partidos.add(new Partido(LocalDate.of(2024, 1, 6), 1, 0, equipos.get(0), equipos.get(3), liga));
+                                partidos.add(new Partido(LocalDate.of(2023, 1, 13), 2, 2, equipos.get(4), equipos.get(6), liga));
+                                partidos.add(new Partido(LocalDate.of(2023, 1, 20), 1, 3, equipos.get(1), equipos.get(2), liga));
+                                partidos.add(new Partido(LocalDate.of(2023, 1, 27), 4, 2, equipos.get(3), equipos.get(6), liga));
+                                partidos.add(new Partido(LocalDate.of(2023, 2, 3), 1, 1, equipos.get(7), equipos.get(2), liga));
+
+                for(int i=0; i<partidos.size(); i++){
+                    DAOPartido.insertPartido(partidos.get(i));
+                }
+
+
+                //- Muestra los datos de todos los equipos
+                List<Equipo> listadoEquipos = DAOEquipo.getEquipos();
+
+                System.out.println("LISTADO DE EQUIPOS");
+                for(int i=0; i<listadoEquipos.size(); i++){
+
+                    Equipo equipo = listadoEquipos.get(i);
+                    System.out.println(equipo.getNombre_equipo()+" - "+equipo.getCiudad()+" / "+equipo.getLiga().getNombre_liga());
+
+                }
+
+
+                //- Elimina dos equipos
+                DAOEquipo.deleteEquipo(1);
+                DAOEquipo.deleteEquipo(2);
+
+
+                //- Muestra todos los partidos de una liga concreta
+                List<Partido> listadoPartidos = DAOPartido.getPartidos(liga);
+
+                System.out.println("LISTADO DE PARTIDOS - "+liga.getNombre_liga());
+                for(int i=0; i<listadoPartidos.size(); i++){
+
+                    Partido partido = listadoPartidos.get(i);
+                    System.out.println(makeFormatFecha(partido.getFecha_partido())+" -> "+partido.getEquipoLocal().getNombre_equipo()+" ("+partido.getGoles_equipo_local()+") vs. "+partido.getEquipoVisitante().getNombre_equipo()+" ("+partido.getGoles_equipo_visitante()+") // "+partido.getLiga().getNombre_liga());
+                }
+
+        }
 }

@@ -28,6 +28,27 @@ public class DAOLiga {
             session.beginTransaction();
 
             //Persistir
+            session.persist(liga);
+
+            //Commit
+            session.getTransaction().commit();
+
+            //Cierro la conexión
+            session.close();
+
+        }
+
+
+        //Método para añadir equipos a la liga
+        public void insertLigaEquipos(Liga liga){
+
+            //sesión
+            Session session = sessionFactory.getCurrentSession();
+
+            //Activar la transaccion
+            session.beginTransaction();
+
+            //Persistir
             session.merge(liga); //si la liga está creada, no la vuelve a crear, en caso contrario la crea de cero
 
             //Commit

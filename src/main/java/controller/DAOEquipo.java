@@ -21,7 +21,7 @@ public class DAOEquipo {
 
     //Consultas
         //Método para insertar una liga
-        public void insertarEquipo(Equipo equipo){
+        public void insertEquipo(Equipo equipo){
 
             //sesión
             Session session = sessionFactory.getCurrentSession();
@@ -39,9 +39,8 @@ public class DAOEquipo {
             session.close();
         }
 
-
         //Método para mostrar todos los equipos (select)
-        public void getEquipos(){
+        public List<Equipo> getEquipos(){
 
             //sesión
             Session session = sessionFactory.getCurrentSession();
@@ -51,23 +50,15 @@ public class DAOEquipo {
 
             //Query
             Query<Equipo> query = session.createQuery("SELECT a FROM Equipo a");
-            List<Equipo> listado = query.list();
-
-            for(Equipo item : listado){
-
-                System.out.println(item.getId_equipo());
-                System.out.println(item.getNombre_equipo());
-                System.out.println(item.getCiudad());
-                System.out.println(item.getLiga().getNombre_liga());
-                System.out.println("\n");
-            }
-
+            List<Equipo> equipos = query.list();
 
             //Commit
             session.getTransaction().commit();
 
             //Cierro la conexión
             session.close();
+
+            return equipos;
         }
 
         //Método para eliminar un equipo
@@ -90,4 +81,72 @@ public class DAOEquipo {
             session.close();
         }
 
+
+        //Método para eliminar todos los equipos de una liga
+        public void deleteEquipos(Liga liga){
+
+            //sesión
+            Session session = sessionFactory.getCurrentSession();
+
+            //Activar la transaccion
+            session.beginTransaction();
+
+            //Query
+            Query query = session.createQuery("DELETE FROM Equipo a WHERE a.liga=:id_liga").setParameter("id_liga", liga);
+            query.executeUpdate();
+
+            //Commit
+            session.getTransaction().commit();
+
+            //Cierro la conexión
+            session.close();
+
+        }
+
+        //Método para obtener la información de un equipo dada su id
+        public Equipo getEquipo(int id){
+
+            //sesión
+            Session session = sessionFactory.getCurrentSession();
+
+            //Activar la transaccion
+            session.beginTransaction();
+
+            //Query
+            Query<Equipo> query = session.createQuery("SELECT a FROM Equipo a WHERE a.id_equipo=:id").setParameter("id", id);
+            Equipo equipo = query.uniqueResult();
+
+            //Commit
+            session.getTransaction().commit();
+
+            //Cierro la conexión
+            session.close();
+
+            return equipo;
+
+        }
+
+
+        //Método para modificar la información de un equipo
+        public void modifyEquipo(Equipo equipo){
+
+            //sesión
+            Session session = sessionFactory.getCurrentSession();
+
+            //Activar la transaccion
+            session.beginTransaction();
+
+            //Query
+            Query query = session.createQuery("UPDATE Equipo a SET a.nombre_equipo=:nombre_equipo, a.ciudad=:ciudad, a.liga=:id_liga WHERE a.id_equipo=:id_equipo").setParameter("nombre_equipo", equipo.getNombre_equipo()).setParameter("ciudad", equipo.getCiudad()).setParameter("id_liga", equipo.getLiga()).setParameter("id_equipo", equipo.getId_equipo());
+            query.executeUpdate();
+
+
+            //Commit
+            session.getTransaction().commit();
+
+            //Cierro la conexión
+            session.close();
+
+
+        }
 }

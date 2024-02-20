@@ -6,10 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="db9eb6ae-af51-499b-990a-67d65d704435" name="Changes" comment="Enunciado">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DAOEquipo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DAOEquipo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/DAOLiga.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DAOLiga.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Equipo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Equipo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DAOPartido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DAOPartido.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +88,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708389722691</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Enunciado">
+      <option name="closed" value="true" />
+      <created>1708396072577</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1708396072577</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -108,6 +116,24 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
           <line>15</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/DAOEquipo.java</url>
+          <line>130</line>
+          <properties class="controller.DAOEquipo" method="modifyEquipo">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/DAOPartido.java</url>
+          <line>119</line>
+          <properties class="controller.DAOPartido" method="modifyPartidoResult">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

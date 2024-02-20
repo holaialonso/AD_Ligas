@@ -19,7 +19,7 @@ public class DAOLiga {
 
     //Consultas
         //Método para insertar una liga
-        public void insertarLiga(Liga liga){
+        public void insertLiga(Liga liga){
 
             //sesión
             Session session = sessionFactory.getCurrentSession();
@@ -40,7 +40,7 @@ public class DAOLiga {
 
 
         //Método para actualizar la información de una liga
-        public void editarLiga(int id, Liga liga){
+        public void modifyLiga(int id, Liga liga){
 
             //Antes de actualizar la liga -> compruebo que existe
             if(issetLiga(id)) {
@@ -98,7 +98,7 @@ public class DAOLiga {
 
 
         //Método para eliminar una liga
-        public void eliminarLiga(int id){
+        public void deleteLiga(int id){
 
             //Antes de eliminar la liga -> compruebo que existe
             if(issetLiga(id)) {

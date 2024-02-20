@@ -45,4 +45,10 @@ public class Equipo implements Serializable {
         this.ciudad=ciudad;
         this.liga=liga;
     }
+
+    //Constructor sin la liga y sin el id
+    public Equipo(String nombre_equipo, String ciudad){
+        this.nombre_equipo=nombre_equipo;
+        this.ciudad=ciudad;
+    }
 }

@@ -56,8 +56,32 @@ public class DAOEquipo {
             for(Equipo item : listado){
 
                 System.out.println(item.getId_equipo());
+                System.out.println(item.getNombre_equipo());
+                System.out.println(item.getCiudad());
+                System.out.println(item.getLiga().getNombre_liga());
+                System.out.println("\n");
             }
 
+
+            //Commit
+            session.getTransaction().commit();
+
+            //Cierro la conexión
+            session.close();
+        }
+
+        //Método para eliminar un equipo
+        public void deleteEquipo(int idEquipo){
+
+            //sesión
+            Session session = sessionFactory.getCurrentSession();
+
+            //Activar la transaccion
+            session.beginTransaction();
+
+            //Query
+            Query query = session.createQuery("DELETE FROM Equipo a WHERE a.id_equipo=:id_equipo").setParameter("id_equipo", idEquipo);
+            query.executeUpdate();
 
             //Commit
             session.getTransaction().commit();

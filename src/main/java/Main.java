@@ -12,11 +12,14 @@ public class Main {
 
     public static void main (String[] args){
 
-        String currentWorkingDirectory = System.getProperty("user.dir");
-        System.out.println("Directorio de trabajo actual: " + currentWorkingDirectory);
+        /*
+            TRUNCATE TABLE Equipos;
+            TRUNCATE TABLE Ligas;
+            TRUNCATE TABLE Partido;
+         */
 
         //1. Crea 1 liga
-        Liga liga = new Liga("Liga Santander", LocalDate.of(2024,5,12),LocalDate.of(2023,4,23));
+    /*    Liga liga = new Liga("Liga Santander", LocalDate.of(2024,5,12),LocalDate.of(2023,4,23));
         DAOLiga DAOLiga = new DAOLiga();
         DAOLiga.insertarLiga(liga);
 
@@ -33,14 +36,23 @@ public class Main {
         Partido partido = new Partido(LocalDate.of(2024,5,12), 9, 0, equipo, equipo2, liga);
         DAOPartido DAOPartido = new DAOPartido();
         DAOPartido.insertarPartido(partido);
-
+    */
         //4. Muestra datos de todos los equipos
-
-
+    /*    DAOEquipo DAOEquipo = new DAOEquipo();
+        DAOEquipo.getEquipos();
+    */
 
         //5. Elimina 2 equipos
-
+   /*     DAOEquipo DAOEquipo = new DAOEquipo();
+        DAOEquipo.deleteEquipo(2);
+    */
 
         //6. Muestra todos los partidos de una liga concreta
+    /*    DAOPartido DAOPartido = new DAOPartido();
+        Liga liga = new Liga(6,"Liga Santander", LocalDate.of(2024,5,12),LocalDate.of(2023,4,23));
+        DAOPartido.getPartidos(liga);
+
+
+     */
     }
 }

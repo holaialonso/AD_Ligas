@@ -49,6 +49,16 @@ public class Liga implements Serializable {
 
     }
 
+    //Constructor con la id
+    public Liga (int id_liga, String nombre_liga, LocalDate fecha_inicio, LocalDate fecha_fin){
+
+        this.id_liga=id_liga;
+        this.nombre_liga=nombre_liga;
+        this.fecha_inicio=fecha_inicio;
+        this.fecha_fin=fecha_fin;
+
+    }
+
 
 
 }

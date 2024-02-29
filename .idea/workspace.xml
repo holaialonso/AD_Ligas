@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db9eb6ae-af51-499b-990a-67d65d704435" name="Changes" comment="Estructura terminada">
+    <list default="true" id="db9eb6ae-af51-499b-990a-67d65d704435" name="Changes" comment="Estructura + acciones">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DAOLiga.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DAOLiga.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +101,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708453634409</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Estructura + acciones">
+      <option name="closed" value="true" />
+      <created>1708466458648</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1708466458648</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -114,7 +121,8 @@
     <MESSAGE value="First Commit" />
     <MESSAGE value="Enunciado" />
     <MESSAGE value="Estructura terminada" />
-    <option name="LAST_COMMIT_MESSAGE" value="Estructura terminada" />
+    <MESSAGE value="Estructura + acciones" />
+    <option name="LAST_COMMIT_MESSAGE" value="Estructura + acciones" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

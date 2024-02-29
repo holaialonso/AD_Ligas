@@ -20,53 +20,47 @@ public class Main {
 
     public static void main (String[] args) throws IOException {
 
+
         //ESTRUCTURA
             //1. GESTIÓN DE LIGAS
 
                 //1.1. Crear, editar y eliminar ligas
-                    //makeNewLigas(); //-> crear
-                   // makeEditLigas(); //-> editar
-                    //makeDeleteLigas(); //->eliminar
+                    makeNewLigas(); //-> crear
+                    makeEditLigas(); //-> editar
+                    makeDeleteLigas(); //->eliminar
 
                 //1.2. Asignar equipos a las ligas
-                    //makeEquiposLigas();
+                    makeEquiposLigas();
 
                 //1.3. Consultar información de las ligas disponibles
-                   // showLigas();
+                    showLigas();
 
 
             //2. GESTIÓN DE EQUIPOS
 
                 //2.1. Registrar nuevos equipos
-                    //makeNewEquipos();
+                    makeNewEquipos();
 
                 //2.2. Modificar información de equipos existentes
-                    //makeEditEquipos();
+                    makeEditEquipos();
 
                 //2.3. Eliminar equipos de una liga
-                    //deleteEquiposLiga();
+                    deleteEquiposLiga();
 
 
             //3. GESTIÓN DE PARTIDOS
 
                 //3.1. Registrar nuevos partidos, indicando equipos involucrados y fecha
-                    //makeNewPartidos();
+                    makeNewPartidos();
 
                 //3.2. Asignar resultados a los partidos jugados
-                    //makeEditPartidos();
+                    makeEditPartidos();
 
                 //3.3. Consultar el calendario de partidos y sus resultados
-                   // showCalendarPartidos();
+                   showCalendarPartidos();
 
         //ACCIONES
-            //makeAcciones();
-
-
-        /*
-            TRUNCATE TABLE Equipos;
-            TRUNCATE TABLE Ligas;
-            TRUNCATE TABLE Partido;
-         */
+            makeAcciones();
 
     }
 
@@ -302,9 +296,11 @@ public class Main {
             DAOPartido DAOPartido = new DAOPartido();
 
             //Realizo las diferentes acciones propuestas en el enunciado
+
                 //- Crea 1 liga
                 Liga liga = new Liga("Premier League", LocalDate.of(2023, 6,1), LocalDate.of(2024, 6, 1));
                 DAOLiga.insertLiga(liga);
+
 
                 //- Crea 8 equipos
                 List<Equipo> equipos = new ArrayList<>();
@@ -321,6 +317,9 @@ public class Main {
                     DAOEquipo.insertEquipo(equipos.get(i));
                 }
 
+
+
+
                 //- Crea 6 partidos
                 List<Partido> partidos = new ArrayList<>();
                                 partidos.add(new Partido(LocalDate.of(2023, 12, 30), 2, 3, equipos.get(2), equipos.get(7), liga));
@@ -336,7 +335,7 @@ public class Main {
 
 
                 //- Muestra los datos de todos los equipos
-                List<Equipo> listadoEquipos = DAOEquipo.getEquipos();
+               List<Equipo> listadoEquipos = DAOEquipo.getEquipos();
 
                 System.out.println("LISTADO DE EQUIPOS");
                 for(int i=0; i<listadoEquipos.size(); i++){
@@ -363,4 +362,6 @@ public class Main {
                 }
 
         }
+
+
 }
